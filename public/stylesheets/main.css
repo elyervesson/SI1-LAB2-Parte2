@@ -1,0 +1,90 @@
+.comMeta {
+    background-color: #f5f5f5;
+    width: 180px;
+    height: 200px;
+    overflow: auto;
+    float: left;
+    position: relative;
+    margin: 5px;
+    padding: 10px;
+
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+    border-radius:7px;
+}
+
+.comMeta2 {
+    background-color: #f5f5f5;
+    width: 180px;
+    height: 200px;
+    overflow: auto;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 60px;
+    padding: 10px;
+
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+    border-radius:7px;
+}
+
+.comMeta:hover {
+    background-color: #f5f5f5;
+    width: 180px;
+    height: 200px;
+    overflow: auto;
+    float: left;
+    position: relative;
+    box-shadow:0 2px 5px #000;
+    margin: 5px;
+    padding: 10px;
+
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+    border-radius:7px;
+}
+
+.descricao {
+    background-color: #ffffff;
+    height: 100px;
+    overflow: auto;
+    position: relative;
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+    border-radius:7px;
+}
+
+#pai{
+    width: 34%;
+    float: left;
+}
+
+#pai2{
+    width: 65%;
+    height: 735px;
+    float: left;
+    overflow: auto;
+    position: relative;
+}
+
+#painel {
+    float: left;
+    width: 300px;
+    margin-left: 10px;
+}
+
+#painel2 {
+    float: left;
+    width: 300px;
+    height: 391px;
+    margin-left: 10px;
+    overflow: auto;
+    position: relative;
+}
+
+#painel3 {
+    float: left;
+    width: 610px;
+    margin-left: 10px;
+}

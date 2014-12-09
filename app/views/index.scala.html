@@ -1,7 +1,134 @@
-@(message: String)
+@(metas: List[Meta])
 
-@main("Welcome to Play") {
+    @main("Minhas Metas"){
 
-    @play20.welcome(message, style = "Java")
+    <div class="containerSupremo" xmlns="http://www.w3.org/1999/html">
+        <header>
+            <div class="hero-unit">
+                <h2>Bem vindo a: Minhas Metas!</h2>
+                <p>Aqui você poderá cadastrar todas as metas que deseja cumprir e acompanhalas sempre que quiser</p>
+            </div>
+        </header>
 
-}
+        <div class="navbar navbar-inverse">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="#1-semana">1° semana</a>
+                    <a class="brand" href="#2-semana">2° semana</a>
+                    <a class="brand" href="#3-semana">3° semana</a>
+                    <a class="brand" href="#4-semana">4° semana</a>
+                    <a class="brand" href="#5-semana">5° semana</a>
+                    <a class="brand" href="#6-semana">6° semana</a>
+                </div>
+            </div>
+        </div>
+
+    <div class="well">
+        <div class="well">
+            <h3>Cadastro de Metas</h3>
+        </div>
+
+        <div align="center">
+            <form method="post" action="/meta">
+                <div class="formAlign">
+                    <h4>Nome</h4>
+                    <input name="Nome" type="text"
+                        placeholder="Digite o nome da meta"
+                    required/>
+                    <br>
+                </div>
+
+                <div class="formAlign">
+                    <h4>Descricao</h4>
+                    <input name="Descricao" type="text"
+                        placeholder="Digite a descrição da meta"
+                    required/>
+                    <br>
+                </div>
+
+                <div class="formAlign">
+                    <h4>Prioridade</h4>
+                    <select name="Prioridade">
+                        <option value="alta">alta</option>
+                        <option value="media">média</option>
+                        <option value="baixa">baixa</option>
+                    </select>
+                    <br>
+                </div>
+
+                <div class="formAlign">
+                    <h4>Semana</h4>
+                    <select name="Semana">
+                        <option value ="1">1° semana</option>
+                        <option value ="2">2° semana</option>
+                        <option value ="3">3° semana</option>
+                        <option value ="4">4° semana</option>
+                        <option value ="5">5° semana</option>
+                        <option value ="6">6° semana</option>
+                    </select><br><br>
+                </div>
+
+                <input class="btn" type="submit" value="cadastrar"/>
+            </form>
+
+        </div>
+    </div>
+
+
+        @for(semana <- 1 to 6){
+            <div class="well">
+            <div class="well well-sm">
+
+                <div><h3 id="@semana-semana">Metas a cumprir para a @semana° semana</h3></div>
+
+                @for(meta <- metas) {
+                    @if(meta.getSemana().equals(semana) && meta.getStatus.equals(false)) {
+                        <div>
+                            <div><h4>@meta.getNome()</h4></div>
+
+                                <p><span>Prioridade</span>: @meta.getPrioridade()</p>
+                                <p><span>Descrição</span>: @meta.getDescricao()</p>
+
+                                <form method="post" action="@routes.Application.setMetaAtingida(meta.getId())" class="opa">
+                                    <input class="btn" type="submit" value="Consegui cumprir"/>
+                                </form>
+
+                                <form method="post" action="@routes.Application.deletaMeta(meta.getId())" class="opa">
+                                    <input class="btn" type="submit" value="Desisti de cumprir"/>
+                                </form>
+                            <br>
+                            <br>
+                        </div>
+                    }
+                }
+            </div>
+
+            <div class="well well-sm">
+
+
+                <div><h3>Metas cumpridas para a @semana° semana</h3></div>
+                @for(meta <- metas) {
+                    @if(meta.getSemana().equals(semana) && meta.getStatus.equals(true)) {
+                        <div>
+                            <div><h4>@meta.getNome()</h4></div>
+                            <div>
+                                <p><span>Prioridade</span>: @meta.getPrioridade()</p>
+                                <p><span>Descrição</span>: @meta.getDescricao()</p>
+                            </div>
+                            <br>
+
+                            <div>
+                                <form method="post" action="@routes.Application.deletaMeta(meta.getId())">
+                                    <input class="btn" type="submit" value="Deletar"/>
+                                </form>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+
+        </div>
+        }
+
+    </div>
+    }

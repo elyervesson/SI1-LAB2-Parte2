@@ -1,0 +1,25 @@
+.containerSupremo {
+    margin: 0 auto;
+    width: 940px;
+
+    color: #250a2c;;
+}
+
+.formAlign {
+    float: left;
+}
+
+.container {
+   margin-left: 100px;
+   margin-right: 100px;
+}
+
+span {
+   TEXT-TRANSFORM: uppercase;
+   font-size:15px; 
+}
+
+.opa {
+float: left
+
+}
